@@ -37,27 +37,36 @@ function toError(value: unknown): Error {
 
 function DefaultFallback({ error, resetError }: ErrorFallbackProps) {
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-gray-50 p-6">
-      <div className="max-w-lg w-full text-center">
-        <h1 className="text-xl font-semibold text-gray-900">
-          Something went wrong
+    <div
+      className="min-h-screen w-full flex items-center justify-center p-6"
+      style={{
+        backgroundImage:
+          'linear-gradient(180deg, #7ec8f5 0%, #b8e0f8 40%, #e8f4fc 70%, #f0e6c8 100%)',
+      }}
+    >
+      <div className="pixel-panel max-w-lg w-full p-6 text-center">
+        <div className="text-4xl mb-4 select-none">💥</div>
+
+        <h1 className="pixel-font text-[13px] text-[#1a1a2e] mb-3 leading-relaxed">
+          GAME OVER
         </h1>
-        <p className="mt-2 text-sm text-gray-600">
-          This part of the app hit an error. The rest of the app is still
-          running.
+
+        <p className="text-sm text-[#1a1a2e]/70 mb-4">
+          This part of the app crashed. The rest is still running.
         </p>
-        {/* Dev only: messages can carry API responses and other internals. */}
+
         {import.meta.env.DEV ? (
-          <pre className="mt-4 overflow-x-auto rounded bg-gray-100 p-3 text-left text-xs text-gray-800">
+          <pre className="mt-3 mb-5 overflow-x-auto rounded-none pixel-border-sm bg-[#fff8e7] p-3 text-left text-[11px] text-[#1a1a2e]">
             {error.message || String(error)}
           </pre>
         ) : null}
+
         <button
           type="button"
           onClick={resetError}
-          className="mt-4 rounded bg-gray-900 px-4 py-2 text-sm text-white hover:bg-gray-700"
+          className="pixel-btn bg-[#ffe566] px-6 py-2.5 text-[12px] font-bold text-[#1a1a2e] hover:bg-[#ffd700]"
         >
-          Try again
+          TRY AGAIN
         </button>
       </div>
     </div>
