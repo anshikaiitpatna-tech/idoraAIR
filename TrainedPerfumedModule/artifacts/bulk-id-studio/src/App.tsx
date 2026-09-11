@@ -358,6 +358,14 @@ function Panel({
 }) {
   return (
     <section
+      className={`overflow-hidden pixel-panel ${className}`}
+    >
+      {children}
+    </section>
+  );
+} {
+  return (
+    <section
       className={`overflow-hidden rounded-xl border border-[#dce6df] bg-[#fffdf8] ${className}`}
     >
       {children}
@@ -374,6 +382,20 @@ function PanelHead({
   title: string;
   action?: ReactNode;
 }) {
+  return (
+    <div className="flex items-center justify-between gap-3 border-b-3 border-[#1a1a2e] bg-[#ffe566] px-4 py-3 sm:px-5">
+      <div>
+        <div className="pixel-font text-[8px] uppercase tracking-wider text-[#1a1a2e]/opacity-70">
+          {eyebrow}
+        </div>
+        <h2 className="mt-1 text-[14px] font-bold tracking-tight text-[#1a1a2e]">
+          {title}
+        </h2>
+      </div>
+      {action}
+    </div>
+  );
+} {
   return (
     <div className="flex items-center justify-between gap-3 border-b border-[#e7eee8] px-4 py-3.5 sm:px-5">
       <div>
