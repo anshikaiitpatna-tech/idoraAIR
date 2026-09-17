@@ -1,14 +1,26 @@
-Live: bulk-id-studio.vercel.app
+> Turn one SVG design template and a spreadsheet into hundreds of press-ready ID cards — zero manual copy-pasting in Canva or Illustrator.
+ Preview & Overview
 
-Turn one SVG design template and a spreadsheet into hundreds of press-ready ID cards — no manual copy-pasting in Canva or Illustrator.
-Built for the IIT Patna Alumni & International Relations Cell to automate Alumni ID card generation for 250+ recipients.
-What it does
+![Bulk ID Studio App Preview](./Screenshot%202026-09-17%20231230.png)
 
-Upload a design template (SVG) that contains placeholder tokens such as {{Name}}, {{Roll No}}, {{Department}}, and a photo box.
-Upload a spreadsheet (CSV or XLSX) with one row per person.
-Map each spreadsheet column to a template token. The app auto-suggests matches and highlights anything that is missing.
-Preview the cards live with real data rendered into the actual design before generating anything.
-Generate in bulk. Every row is turned into a finished card and packaged as a downloadable ZIP of PNGs plus a print-ready combined PDF.
+Designing bulk credentials manually in Canva, Figma, or Illustrator is tedious, repetitive, and prone to human error.
+
+IDORA was built for the IIT Patna Alumni & International Relations Cell to automate Alumni ID card generation for 250+ recipients, eliminating hours of repetitive design handoffs.
+
+
+Live Demo
+
+Check out the live application: [bulk-id-studio.vercel.app]((https://idora-air.vercel.app/))
+
+
+
+ What It Does
+
+1. Upload a Template (SVG): Upload an SVG design containing placeholder tokens such as `{{Name}}`, `{{Roll No}}`, `{{Department}}`, and a photo box.
+2. Upload Data (CSV / XLSX): Import a spreadsheet with one row per person.
+3. Smart Column Mapping: Map each spreadsheet column to a template token. The app auto-suggests matches and highlights missing fields.
+4. Live In-Browser Preview: Preview cards live with real data rendered into the actual design before generating anything.
+5. Bulk Export: Every row is converted into a finished card and packaged as a downloadable ZIP of PNGs plus a print-ready combined PDF.
 
 Key features
 
@@ -29,7 +41,7 @@ jszip for archive handling and ZIP export
 Native SVG DOM manipulation for token substitution and photo embedding
 Canvas-based SVG → PNG rasterization
 
-Known limitations
+ Known Limitations
 
-If the SVG text has been converted to outlines or paths at export time (for example, Illustrator’s “Create Outlines” or any similar flatten option), the token text no longer exists as editable data and cannot be detected. The source design must be re-exported with editable text.
-Photo cropping follows the placeholder’s bounding box (preserveAspectRatio="xMidYMid slice"). Non-rectangular crops depend on the original shape’s clip-path being preserved during export.
+Outlined Text: If SVG text has been converted to outlines/paths during export (e.g., Illustrator's *Create Outlines*), tokens cannot be detected. The source design must be exported with editable text.
+Complex Crops: Non-rectangular photo crops require the source file's original `<clipPath>` definitions to be preserved during export.
